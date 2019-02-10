@@ -1,7 +1,7 @@
 package com.booksgames.loja.controller;
 
-import com.booksgames.loja.model.Grupo;
-import com.booksgames.loja.repository.GrupoRepository;
+import com.booksgames.loja.model.Cor;
+import com.booksgames.loja.repository.CorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,36 +15,36 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/grupos")
-public class GrupoController {
+@RequestMapping("/cores")
+public class CorController {
     @Autowired
-    private GrupoRepository grupoRepository;
+    private CorRepository corRepository;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<Grupo> getAllGrupos() {
-        return grupoRepository.findAll();
+    public List<Cor> getAllCors() {
+        return corRepository.findAll();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Grupo getPetById(@PathVariable("id") ObjectId id) {
-        return grupoRepository.findBy_id(id);
+    public Cor getPetById(@PathVariable("id") ObjectId id) {
+        return corRepository.findBy_id(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void modifyPetById(@PathVariable("id") ObjectId id, @Valid @RequestBody Grupo grupo) {
-        grupo.set_id(id);
-        grupoRepository.save(grupo);
+    public void modifyPetById(@PathVariable("id") ObjectId id, @Valid @RequestBody Cor cor) {
+        cor.set_id(id);
+        corRepository.save(cor);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public Grupo createPet(@Valid @RequestBody Grupo grupo) {
-        grupo.set_id(ObjectId.get());
-        grupoRepository.save(grupo);
-        return grupo;
+    public Cor createPet(@Valid @RequestBody Cor cor) {
+        cor.set_id(ObjectId.get());
+        corRepository.save(cor);
+        return cor;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deletePet(@PathVariable ObjectId id) {
-        grupoRepository.delete(grupoRepository.findBy_id(id));
+        corRepository.delete(corRepository.findBy_id(id));
     }
 }
