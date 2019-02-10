@@ -14,17 +14,23 @@ public class Produto {
   public String descricao;
   public Float preco;
   public String grupo;
+  public String cor;
   
   // Constructors
   public Produto() {}
   
-  public Produto(ObjectId _id, String descricao, Float preco, String grupo) {
+  public Produto(ObjectId _id, String descricao, Float preco, String grupo, String cor) {
     this._id = _id;
     this.descricao = descricao;
     this.preco = preco;
     this.grupo = grupo;
+    this.cor = cor;
   }
-  
+
+  public static long getSerialVersionUID() {
+    return serialVersionUID;
+  }
+
   // ObjectId needs to be converted to string
   public String get_id() { return _id.toHexString(); }
   public void set_id(ObjectId _id) { this._id = _id; }
@@ -37,4 +43,11 @@ public class Produto {
   
   public String getGrupo() { return grupo; }
   public void setGrupo(String grupo) { this.grupo = grupo; }
+  public String getCor() {
+    return cor;
+  }
+
+  public void setCor(String cor) {
+    this.cor = cor;
+  }
 }
