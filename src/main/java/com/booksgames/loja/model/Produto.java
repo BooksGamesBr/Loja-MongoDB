@@ -2,8 +2,12 @@ package com.booksgames.loja.model;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class Prosuto {
+@Document(collection = "produto")
+public class Produto {
+  private static final long serialVersionUID = 1L;
+
   @Id
   public ObjectId _id;
   
@@ -28,8 +32,8 @@ public class Prosuto {
   public String getDescricao() { return descricao; }
   public void setDescricao(String descricao) { this.descricao = descricao; }
   
-  public String getPreco() { return preco; }
-  public void setPreco(String preco) { this.preco = preco; }
+  public Float getPreco() { return preco; }
+  public void setPreco(Float preco) { this.preco = preco; }
   
   public String getGrupo() { return grupo; }
   public void setGrupo(String grupo) { this.grupo = grupo; }
