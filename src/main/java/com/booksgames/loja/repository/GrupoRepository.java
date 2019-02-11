@@ -1,6 +1,6 @@
 package com.booksgames.loja.repository;
 
-import com.booksgames.loja.model.Grupo;
+import com.booksgames.loja.domain.Grupo;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

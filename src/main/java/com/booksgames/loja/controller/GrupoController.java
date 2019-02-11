@@ -1,6 +1,6 @@
 package com.booksgames.loja.controller;
 
-import com.booksgames.loja.model.Grupo;
+import com.booksgames.loja.domain.Grupo;
 import com.booksgames.loja.repository.GrupoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

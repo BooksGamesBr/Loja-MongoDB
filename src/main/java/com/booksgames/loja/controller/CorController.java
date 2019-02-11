@@ -1,6 +1,6 @@
 package com.booksgames.loja.controller;
 
-import com.booksgames.loja.model.Cor;
+import com.booksgames.loja.domain.Cor;
 import com.booksgames.loja.repository.CorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
