@@ -8,9 +8,9 @@ public interface ClienteService {
 
     List<Cliente> listarTodos();
 
-    /*Cliente listarPorId(String id);
+    List<Cliente> listarPorId(String id);
 
-    Cliente cadastrar(Cliente cliente);
+    /*Cliente cadastrar(Cliente cliente);
 
     Cliente atualizar(Cliente cliente);
 

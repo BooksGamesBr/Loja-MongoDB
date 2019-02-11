@@ -9,6 +9,7 @@ import com.booksgames.loja.documents.Pets;
 import com.booksgames.loja.repository.PetsRepository;
 import com.booksgames.loja.services.PetsService;
 
+
 @Service
 public class PetsServiceImpl implements PetsService {
 
@@ -20,5 +21,8 @@ public class PetsServiceImpl implements PetsService {
         return this.petsRepository.findAll();
     }
 
-
+    @Override
+    public Pets listarPorId(String id) {
+        return this.petsRepository.findBy_id(id);
+    }
 }

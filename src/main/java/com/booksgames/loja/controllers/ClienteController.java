@@ -30,11 +30,11 @@ public class ClienteController {
         return ResponseEntity.ok(new Response<List<Cliente>>(this.clienteService.listarTodos()));
     }
 
-  /*  @GetMapping(path = "/{id}")
+   @GetMapping(path = "/{id}")
     public ResponseEntity<Response<Cliente>> listarPorId(@PathVariable(name = "id") String id) {
-        return ResponseEntity.ok(new Response<Cliente>(this.clienteService.listarPorId(id)));
+        return ResponseEntity.ok(new Response<Cliente>((Cliente) this.clienteService.listarTodos()));
     }
-
+/*
     @PostMapping
     public ResponseEntity<Response<Cliente>> cadastrar(@Valid @RequestBody Cliente cliente, BindingResult result) {
         if (result.hasErrors()) {

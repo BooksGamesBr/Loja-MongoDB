@@ -2,11 +2,7 @@ package com.booksgames.loja.controllers;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
 import javax.validation.Valid;
@@ -37,11 +33,18 @@ public class PetsController {
         return ResponseEntity.ok(new Response<List<Pets>>(this.petsService.listarTodos()));
     }
 
-    /*@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Pets getPetById(@PathVariable("id") ObjectId id) {
+ /*  @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Pets getPetById(@PathVariable("id") String id) {
         return petsRepository.findBy_id(id);
+    }*/
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Response<Pets>> listarPorId(@PathVariable(name = "id") String id) {
+        return ResponseEntity.ok(new Response<Pets>(this.petsService.listarPorId(id)));
     }
 
+
+/*
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public void modifyPetById(@PathVariable("id") ObjectId id, @Valid @RequestBody Pets pets) {
         pets.set_id(id);

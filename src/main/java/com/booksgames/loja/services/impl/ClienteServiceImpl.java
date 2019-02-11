@@ -1,6 +1,7 @@
 package com.booksgames.loja.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,10 +21,10 @@ public class ClienteServiceImpl implements ClienteService {
         return this.clienteRespository.findAll();
     }
 
- /*   @Override
-    public Cliente listarPorId(String id) {
-        return this.clienteRespository.findById(id);
-    }*
+   @Override
+    public List<Cliente> listarPorId(String id) {
+        return this.listarTodos();
+    }/*
 
     @Override
     public Cliente cadastrar(Cliente cliente) {
