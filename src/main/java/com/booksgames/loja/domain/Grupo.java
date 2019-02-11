@@ -10,11 +10,7 @@ public class Grupo {
 
     @Id
     public ObjectId _id;
-
     public String descricao;
-    public Float preco;
-    public String grupo;
-    public String cor;
 
     // Constructors
     public Grupo() {}
@@ -44,27 +40,4 @@ public class Grupo {
         this.descricao = descricao;
     }
 
-    public Float getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Float preco) {
-        this.preco = preco;
-    }
-
-    public String getGrupo() {
-        return grupo;
-    }
-
-    public void setGrupo(String grupo) {
-        this.grupo = grupo;
-    }
-
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
 }

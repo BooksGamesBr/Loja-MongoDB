@@ -4,6 +4,7 @@ import org.bson.types.ObjectId;
 
 import javax.xml.crypto.Data;
 import java.io.Serializable;
+import java.util.Date;
 import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
@@ -28,12 +29,12 @@ public class ProdutoDTO implements Serializable {
     @Length(min=1, max=80, message="O tamanho deve ser entre 1 e 80 caracteres")
     private CorDTO corDTO;
 
-    public Data datacadastro;
+    public Date datacadastro;
 
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(ObjectId _id, String descricao, Double preco, GrupoDTO grupoDTO, CorDTO corDTO, Data datacadastro) {
+    public ProdutoDTO(ObjectId _id, String descricao, Double preco, GrupoDTO grupoDTO, CorDTO corDTO, Date datacadastro) {
         this._id = _id;
         this.descricao = descricao;
         this.preco = preco;
@@ -86,11 +87,11 @@ public class ProdutoDTO implements Serializable {
         this.corDTO = corDTO;
     }
 
-    public Data getDatacadastro() {
+    public Date getDatacadastro() {
         return datacadastro;
     }
 
-    public void setDatacadastro(Data datacadastro) {
+    public void setDatacadastro(Date datacadastro) {
         this.datacadastro = datacadastro;
     }
 }

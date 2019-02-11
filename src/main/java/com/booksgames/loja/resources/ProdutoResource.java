@@ -1,4 +1,4 @@
-package com.booksgames.loja.controller;
+package com.booksgames.loja.resources;
 
 import com.booksgames.loja.domain.Produto;
 import com.booksgames.loja.repository.ProdutoRepository;
@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/produtos")
-public class ProdutoController {
+public class ProdutoResource {
   @Autowired
   private ProdutoRepository repository;
   

@@ -10,7 +10,6 @@ public class Cor {
 
     @Id
     public ObjectId _id;
-
     public String nome;
     public String hex;
 

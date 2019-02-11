@@ -1,4 +1,4 @@
-package com.booksgames.loja.controller;
+package com.booksgames.loja.resources;
 
 import com.booksgames.loja.domain.Grupo;
 import com.booksgames.loja.repository.GrupoRepository;
@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/grupos")
-public class GrupoController {
+public class GrupoResource {
     @Autowired
     private GrupoRepository grupoRepository;
 
