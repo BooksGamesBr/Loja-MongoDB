@@ -2,21 +2,15 @@ package com.booksgames.loja.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import com.booksgames.loja.repository.ClienteRepository;
 import com.booksgames.loja.documents.Cliente;
 import com.booksgames.loja.responses.Response;
 import com.booksgames.loja.services.ClienteService;
@@ -28,7 +22,10 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @GetMapping
+    @Autowired
+    private ClienteRepository clienteRepository;
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public ResponseEntity<Response<List<Cliente>>> listarTodos() {
         return ResponseEntity.ok(new Response<List<Cliente>>(this.clienteService.listarTodos()));
     }
@@ -36,7 +33,7 @@ public class ClienteController {
   /*  @GetMapping(path = "/{id}")
     public ResponseEntity<Response<Cliente>> listarPorId(@PathVariable(name = "id") String id) {
         return ResponseEntity.ok(new Response<Cliente>(this.clienteService.listarPorId(id)));
-    }*/
+    }
 
     @PostMapping
     public ResponseEntity<Response<Cliente>> cadastrar(@Valid @RequestBody Cliente cliente, BindingResult result) {
@@ -61,7 +58,7 @@ public class ClienteController {
         return ResponseEntity.ok(new Response<Cliente>(this.clienteService.atualizar(cliente)));
     }
 
- /*   @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<Response<Integer>> remover(@PathVariable(name = "id") String id) {
         this.clienteService.remover(id);
         return ResponseEntity.ok(new Response<Integer>(1));

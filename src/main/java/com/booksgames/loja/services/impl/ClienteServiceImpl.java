@@ -23,7 +23,7 @@ public class ClienteServiceImpl implements ClienteService {
  /*   @Override
     public Cliente listarPorId(String id) {
         return this.clienteRespository.findById(id);
-    }*/
+    }*
 
     @Override
     public Cliente cadastrar(Cliente cliente) {
@@ -35,7 +35,7 @@ public class ClienteServiceImpl implements ClienteService {
         return this.clienteRespository.save(cliente);
     }
 
-  /*  @Override
+   @Override
     public void remover(Integer id) {
         this.clienteRespository.delete(id);
     }*/

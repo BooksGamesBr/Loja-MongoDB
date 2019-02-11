@@ -1,27 +1,33 @@
 package com.booksgames.loja.documents;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Document(collection = "cliente")
 public class Cliente {
     private static final long serialVersionUID = 1L;
+
     @Id
-    private String id;
+    public ObjectId _id;
     private String nome;
     private String email;
     private String cpf;
 
-    public Cliente() {
+    // Constructors
+    public Cliente() {}
+
+    public Cliente(ObjectId _id, String nome, String email, String cpf) {
+        this._id = _id;
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    // ObjectId needs to be converted to string
+    public String get_id() { return _id.toHexString(); }
+    public void set_id(ObjectId _id) { this._id = _id; }
 
     public String getNome() {
         return nome;
@@ -39,10 +45,10 @@ public class Cliente {
         this.email = email;
     }
 
+    @CPF(message = "CPF inválido")
     public String getCpf() {
         return cpf;
     }
-
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }

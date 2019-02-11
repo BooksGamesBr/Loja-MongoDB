@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "pets")
 public class Pets {
+    private static final long serialVersionUID = 1L;
+
     @Id
     public ObjectId _id;
 
