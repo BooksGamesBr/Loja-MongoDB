@@ -3,7 +3,6 @@ package com.booksgames.loja.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -11,7 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import com.booksgames.loja.domain.Cor;
+import com.booksgames.loja.documents.Cor;
 import com.booksgames.loja.dto.CorDTO;
 import com.booksgames.loja.repository.CorRepository;
 import com.booksgames.loja.services.exceptions.DataIntegrityException;
@@ -23,10 +22,10 @@ public class CorService {
     @Autowired
     private CorRepository corRepository;
 
-    public Cor find(Integer id) {
-        Optional<Cor> obj = corRepository.findById(id);
+    public Cor find(Integer _id) {
+        Optional<Cor> obj = corRepository.findById(_id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
-                "Objeto não encontrado! Id: " + id + ", Tipo: " + Cor.class.getName()));
+                "Objeto não encontrado! Id: " + _id + ", Tipo: " + Cor.class.getName()));
     }
 
     public Cor insert(Cor obj) {
@@ -34,16 +33,16 @@ public class CorService {
         return corRepository.save(obj);
     }
 
-  /*  public Cor update(Cor obj) {
-        Cor newObj = find(obj.get_id(null));
-        updateData(newObj, obj);
+    public Cor update(Integer _id) {
+        Cor newObj = find(_id);
+        updateData(newObj, newObj);
         return corRepository.save(newObj);
-    }*/
+    }
 
-    public void delete(Integer id) {
-        find(id);
+    public void delete(Integer _id) {
+        find(_id);
         try {
-            corRepository.deleteById(id);
+            corRepository.deleteById(_id);
         }
         catch (DataIntegrityViolationException e) {
             throw new DataIntegrityException("Não é possível excluir uma cor que possui produtos");

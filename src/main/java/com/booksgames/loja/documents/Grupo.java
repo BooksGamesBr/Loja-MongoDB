@@ -1,4 +1,4 @@
-package com.booksgames.loja.domain;
+package com.booksgames.loja.documents;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

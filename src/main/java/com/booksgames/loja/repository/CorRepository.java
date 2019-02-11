@@ -1,6 +1,6 @@
 package com.booksgames.loja.repository;
 
-import com.booksgames.loja.domain.Cor;
+import com.booksgames.loja.documents.Cor;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

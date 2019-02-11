@@ -1,6 +1,6 @@
 package com.booksgames.loja.dto;
 
-import com.booksgames.loja.domain.Cor;
+import com.booksgames.loja.documents.Cor;
 import org.bson.types.ObjectId;
 
 import java.io.Serializable;

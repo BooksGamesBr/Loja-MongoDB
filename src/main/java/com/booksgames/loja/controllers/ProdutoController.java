@@ -1,6 +1,6 @@
-package com.booksgames.loja.resources;
+package com.booksgames.loja.controllers;
 
-import com.booksgames.loja.domain.Produto;
+import com.booksgames.loja.documents.Produto;
 import com.booksgames.loja.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/produtos")
-public class ProdutoResource {
+public class ProdutoController {
   @Autowired
   private ProdutoRepository repository;
   

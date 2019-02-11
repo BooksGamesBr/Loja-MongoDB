@@ -1,12 +1,9 @@
-package com.booksgames.loja.domain;
+package com.booksgames.loja.documents;
 
-import java.io.Serializable;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Locale;
-import java.util.Set;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

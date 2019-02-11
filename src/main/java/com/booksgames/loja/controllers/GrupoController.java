@@ -1,6 +1,6 @@
-package com.booksgames.loja.resources;
+package com.booksgames.loja.controllers;
 
-import com.booksgames.loja.domain.Grupo;
+import com.booksgames.loja.documents.Grupo;
 import com.booksgames.loja.repository.GrupoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/grupos")
-public class GrupoResource {
+public class GrupoController {
     @Autowired
     private GrupoRepository grupoRepository;
 
