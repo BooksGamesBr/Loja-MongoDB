@@ -1,8 +1,5 @@
 package com.booksgames.loja.services;
 
-
-import java.util.List;
-
 import com.booksgames.loja.documents.Cor;
 
 public interface CorService {

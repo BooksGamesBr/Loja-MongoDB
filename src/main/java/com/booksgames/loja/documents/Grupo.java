@@ -1,6 +1,5 @@
 package com.booksgames.loja.documents;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,13 +8,13 @@ public class Grupo {
     private static final long serialVersionUID = 1L;
 
     @Id
-    public ObjectId _id;
+    public String _id;
     public String descricao;
 
     // Constructors
     public Grupo() {}
 
-    public Grupo(ObjectId _id, String descricao) {
+    public Grupo(String _id, String descricao) {
         this._id = _id;
         this.descricao = descricao;
     }
@@ -24,11 +23,11 @@ public class Grupo {
         return serialVersionUID;
     }
 
-    public ObjectId get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(ObjectId _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 

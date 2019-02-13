@@ -1,6 +1,5 @@
 package com.booksgames.loja.documents;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.hibernate.validator.constraints.br.CPF;
@@ -10,7 +9,7 @@ public class Cliente {
     private static final long serialVersionUID = 1L;
 
     @Id
-    public ObjectId _id;
+    public String _id;
     private String nome;
     private String email;
     private String cpf;
@@ -18,16 +17,20 @@ public class Cliente {
     // Constructors
     public Cliente() {}
 
-    public Cliente(ObjectId _id, String nome, String email, String cpf) {
+    public Cliente(String _id, String nome, String email, String cpf) {
         this._id = _id;
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
     }
 
-    // ObjectId needs to be converted to string
-    public String get_id() { return _id.toHexString(); }
-    public void set_id(ObjectId _id) { this._id = _id; }
+    public String get_id( ) {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
     public String getNome() {
         return nome;
