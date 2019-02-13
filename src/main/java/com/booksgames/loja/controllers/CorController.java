@@ -70,7 +70,7 @@ public class CorController {
             @RequestParam(value="orderBy", defaultValue="nome") String orderBy,
             @RequestParam(value="direction", defaultValue="ASC") String direction) {
         Page<Cor> list = corServiceImpl.findPage(page, linesPerPage, orderBy, direction);
-        Page<CorDTO> listDto = list.map(obj -> new CorDTO(obj));
+        Page<CorDTO> listDto = list.map(CorDTO::new);
         return ResponseEntity.ok().body(listDto);
     }
 }

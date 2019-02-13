@@ -35,7 +35,6 @@ public class Produto {
     this.cor = cor;
     this.datacadastro = datacadastro;
   }
-  // ObjectId needs to be converted to string
 
   public String get_id() {
     return _id;

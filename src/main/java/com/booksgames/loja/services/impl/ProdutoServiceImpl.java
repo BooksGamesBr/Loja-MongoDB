@@ -31,6 +31,10 @@ public class ProdutoServiceImpl implements ProdutoService {
                 "Objeto não encontrado! Id: " + _id + ", Tipo: " + Produto.class.getName()));
     }
 
+    public List<Produto> findAll() {
+        return produtoRepository.findAll();
+    }
+
     @Transactional
     public Produto insert(Produto obj) {
         obj.set_id(null);
@@ -65,8 +69,6 @@ public class ProdutoServiceImpl implements ProdutoService {
                 objDto.get_id(),
                 objDto.getDescricao(),
                 objDto.getPreco(),null,null,
-               /* objDto.getGrupoDTO().getNome(),
-                objDto.getCorDTO().getNome(),*/
                 objDto.getDatacadastro());
     }
 
