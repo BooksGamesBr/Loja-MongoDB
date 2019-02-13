@@ -11,7 +11,7 @@ import org.hibernate.validator.constraints.Length;
 public class ProdutoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    public ObjectId _id;
+    public String _id;
 
     @NotEmpty(message="Preenchimento obrigatório")
     @Length(min=1, max=80, message="O tamanho deve ser entre 1 e 80 caracteres")
@@ -34,7 +34,7 @@ public class ProdutoDTO implements Serializable {
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(ObjectId _id, String descricao, Double preco, GrupoDTO grupoDTO, CorDTO corDTO, Date datacadastro) {
+    public ProdutoDTO(String _id, String descricao, Double preco, GrupoDTO grupoDTO, CorDTO corDTO, Date datacadastro) {
         this._id = _id;
         this.descricao = descricao;
         this.preco = preco;
@@ -43,15 +43,11 @@ public class ProdutoDTO implements Serializable {
         this.datacadastro = datacadastro;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public ObjectId get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(ObjectId _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 

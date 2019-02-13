@@ -4,10 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,9 +14,6 @@ public class Estado implements Serializable {
     @Id
     public String _id;;
     private String nome;
-
-    @JsonIgnore
-    @OneToMany(mappedBy="estado")
     private List<Cidade> cidades = new ArrayList<>();
 
     public Estado() {

@@ -9,7 +9,7 @@ public class Pets {
     private static final long serialVersionUID = 1L;
 
     @Id
-    public ObjectId _id;
+    public String _id;
 
     public String nome;
     public String especie;
@@ -18,16 +18,20 @@ public class Pets {
     // Constructors
     public Pets() {}
 
-    public Pets(ObjectId _id, String nome, String especie, String raca) {
+    public Pets(String _id, String nome, String especie, String raca) {
         this._id = _id;
         this.nome = nome;
         this.especie = especie;
         this.raca = raca;
     }
 
-    // ObjectId needs to be converted to string
-    public String get_id() { return _id.toHexString(); }
-    public void set_id(ObjectId _id) { this._id = _id; }
+    public String get_id( ) {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }

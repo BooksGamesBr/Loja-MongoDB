@@ -1,6 +1,5 @@
 package com.booksgames.loja.services.impl;
 
-import java.util.List;
 import java.util.Optional;
 
 import com.booksgames.loja.services.CorService;
@@ -34,11 +33,6 @@ public class CorServiceImpl implements CorService {
     public Cor insert(Cor obj) {
         obj.set_id(null);
         return corRepository.save(obj);
-    }
-
-    @Override
-    public Cor update(Cor cor) {
-        return null;
     }
 
     public Cor update(String _id) {

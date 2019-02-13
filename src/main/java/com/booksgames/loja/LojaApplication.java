@@ -15,8 +15,6 @@ public class LojaApplication {
 		LOG.info("INICIANDO...");
 		SpringApplication.run(LojaApplication.class, args);
 		LOG.info("INICIOU NORMALMENTE porta 8080");
-
 	}
-
 }
 

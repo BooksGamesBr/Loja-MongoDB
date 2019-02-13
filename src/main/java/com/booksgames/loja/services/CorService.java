@@ -10,7 +10,7 @@ public interface CorService {
 
     Cor insert(Cor cor);
 
-    Cor update(Cor cor);
+    Cor update(String id);
 
     void delete(String id);
 }

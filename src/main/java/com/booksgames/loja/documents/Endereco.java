@@ -1,12 +1,7 @@
 package com.booksgames.loja.documents;
 
-
 import java.io.Serializable;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -21,14 +16,7 @@ public class Endereco implements Serializable {
     private String complemento;
     private String bairro;
     private String cep;
-
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="cliente_id")
     private Cliente cliente;
-
-    @ManyToOne
-    @JoinColumn(name="cidade_id")
     private Cidade cidade;
 
     public Endereco() {

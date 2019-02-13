@@ -17,10 +17,6 @@ public class GrupoDTO implements Serializable {
         nome = obj.getDescricao();
       }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
     public String get_id() {
         return _id;
     }

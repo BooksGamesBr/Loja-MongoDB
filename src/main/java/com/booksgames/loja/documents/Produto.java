@@ -8,7 +8,6 @@ import java.util.Locale;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Document(collection = "produto")
@@ -16,19 +15,19 @@ public class Produto {
   private static final long serialVersionUID = 1L;
 
   @Id
-  public ObjectId _id;
+  public String _id;
   
   public String descricao;
   public Double preco;
-  public String grupo;
-  public String cor;
+  public Grupo grupo;
+  public Cor cor;
   @JsonFormat(pattern="dd/MM/yyyy HH:mm")
   public Date datacadastro;
   
   // Constructors
   public Produto() {}
   
-  public Produto(ObjectId _id, String descricao, Double preco, String grupo, String cor, Date datacadastro) {
+  public Produto(String _id, String descricao, Double preco, Grupo grupo, Cor cor, Date datacadastro) {
     this._id = _id;
     this.descricao = descricao;
     this.preco = preco;
@@ -36,18 +35,13 @@ public class Produto {
     this.cor = cor;
     this.datacadastro = datacadastro;
   }
-
-  public static long getSerialVersionUID() {
-    return serialVersionUID;
-  }
-
   // ObjectId needs to be converted to string
 
-  public ObjectId get_id() {
+  public String get_id() {
     return _id;
   }
 
-  public void set_id(ObjectId _id) {
+  public void set_id(String _id) {
     this._id = _id;
   }
 
@@ -67,19 +61,19 @@ public class Produto {
     this.preco = preco;
   }
 
-  public String getGrupo() {
+  public Grupo getGrupo() {
     return grupo;
   }
 
-  public void setGrupo(String grupo) {
+  public void setGrupo(Grupo grupo) {
     this.grupo = grupo;
   }
 
-  public String getCor() {
+  public Cor getCor() {
     return cor;
   }
 
-  public void setCor(String cor) {
+  public void setCor(Cor cor) {
     this.cor = cor;
   }
 
