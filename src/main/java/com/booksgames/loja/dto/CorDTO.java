@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class CorDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private ObjectId _id;
+    private String _id;
     private String nome;
     private String hex;
 
@@ -21,15 +21,11 @@ public class CorDTO implements Serializable {
         hex = obj.getHex();
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public ObjectId get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(ObjectId _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 

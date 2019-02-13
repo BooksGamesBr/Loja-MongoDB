@@ -1,68 +1,19 @@
 package com.booksgames.loja.services;
 
-import java.util.List;
-import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort.Direction;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 import com.booksgames.loja.documents.Cor;
-import com.booksgames.loja.dto.CorDTO;
-import com.booksgames.loja.repository.CorRepository;
-import com.booksgames.loja.services.exceptions.DataIntegrityException;
-import com.booksgames.loja.services.exceptions.ObjectNotFoundException;
 
-@Service
-public class CorService {
+public interface CorService {
 
-    @Autowired
-    private CorRepository corRepository;
+   /* List<Cor> findAll();
 
-    public Cor find(Integer _id) {
-        Optional<Cor> obj = corRepository.findById(_id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException(
-                "Objeto não encontrado! Id: " + _id + ", Tipo: " + Cor.class.getName()));
-    }
+    List<Cor> findId(String id);*/
 
-    public Cor insert(Cor obj) {
-        obj.set_id(null);
-        return corRepository.save(obj);
-    }
+    Cor insert(Cor cor);
 
-    public Cor update(Integer _id) {
-        Cor newObj = find(_id);
-        updateData(newObj, newObj);
-        return corRepository.save(newObj);
-    }
+    Cor update(Cor cor);
 
-    public void delete(Integer _id) {
-        find(_id);
-        try {
-            corRepository.deleteById(_id);
-        }
-        catch (DataIntegrityViolationException e) {
-            throw new DataIntegrityException("Não é possível excluir uma cor que possui produtos");
-        }
-    }
-
-    public List<Cor> findAll() {
-        return corRepository.findAll();
-    }
-
-    public Page<Cor> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
-        PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-        return corRepository.findAll(pageRequest);
-    }
-
-    public Cor fromDTO(CorDTO objDto) {
-        return new Cor(objDto.get_id(), objDto.getNome(),objDto.getHex());
-    }
-
-    private void updateData(Cor newObj, Cor obj) {
-        newObj.setNome(obj.getNome());
-    }
+    void delete(String id);
 }

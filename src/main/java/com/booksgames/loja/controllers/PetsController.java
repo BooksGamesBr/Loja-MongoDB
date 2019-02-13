@@ -38,7 +38,7 @@ public class PetsController {
         return petsRepository.findBy_id(id);
     }*/
 
-    @GetMapping(path = "/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Response<Pets>> listarPorId(@PathVariable(name = "id") String id) {
         return ResponseEntity.ok(new Response<Pets>(this.petsService.listarPorId(id)));
     }
