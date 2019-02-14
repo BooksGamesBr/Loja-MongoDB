@@ -1,10 +1,9 @@
 package com.booksgames.loja.dto;
 
-import com.booksgames.loja.documents.Produto;
+import com.booksgames.loja.documents.Cor;
+import com.booksgames.loja.documents.Grupo;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.bson.types.ObjectId;
 
-import javax.xml.crypto.Data;
 import java.io.Serializable;
 import java.util.Date;
 import javax.validation.constraints.NotEmpty;
@@ -25,11 +24,11 @@ public class ProdutoNewDTO implements Serializable {
 
     @NotEmpty(message="Preenchimento obrigatório")
     @Length(min=1, max=80, message="O tamanho deve ser entre 1 e 80 caracteres")
-    private GrupoDTO grupoDTO;
+    private Grupo grupo;
 
     @NotEmpty(message="Preenchimento obrigatório")
     @Length(min=1, max=80, message="O tamanho deve ser entre 1 e 80 caracteres")
-    private CorDTO corDTO;
+    private Cor cor;
 
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date datacadastro;
@@ -37,13 +36,29 @@ public class ProdutoNewDTO implements Serializable {
     public ProdutoNewDTO() {
     }
 
-    public ProdutoNewDTO(String _id, String descricao, Double preco, GrupoDTO grupoDTO, CorDTO corDTO, Date datacadastro) {
+    public ProdutoNewDTO(String _id, String descricao, Double preco, Grupo grupo, Cor cor, Date datacadastro) {
         this._id = _id;
         this.descricao = descricao;
         this.preco = preco;
-        this.grupoDTO = grupoDTO;
-        this.corDTO = corDTO;
+        this.grupo = grupo;
+        this.cor = cor;
         this.datacadastro = datacadastro;
+    }
+
+    public Grupo getGrupo( ) {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
+    }
+
+    public Cor getCor( ) {
+        return cor;
+    }
+
+    public void setCor(Cor cor) {
+        this.cor = cor;
     }
 
     public String get_id() {
@@ -68,22 +83,6 @@ public class ProdutoNewDTO implements Serializable {
 
     public void setPreco(Double preco) {
         this.preco = preco;
-    }
-
-    public GrupoDTO getGrupoDTO() {
-        return grupoDTO;
-    }
-
-    public void setGrupoDTO(GrupoDTO grupoDTO) {
-        this.grupoDTO = grupoDTO;
-    }
-
-    public CorDTO getCorDTO() {
-        return corDTO;
-    }
-
-    public void setCorDTO(CorDTO corDTO) {
-        this.corDTO = corDTO;
     }
 
     public Date getDatacadastro() {

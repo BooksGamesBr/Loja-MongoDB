@@ -1,7 +1,9 @@
 package com.booksgames.loja.services.impl;
 
+import java.util.List;
 import java.util.Optional;
 
+import com.booksgames.loja.repository.reactive.CorReactiveRespository;
 import com.booksgames.loja.services.CorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -16,12 +18,17 @@ import com.booksgames.loja.repository.CorRepository;
 import com.booksgames.loja.services.exceptions.DataIntegrityException;
 import com.booksgames.loja.services.exceptions.ObjectNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 public class CorServiceImpl implements CorService {
 
     @Autowired
     private CorRepository corRepository;
+
+    @Autowired
+    private  CorReactiveRespository corReactiveRespository;
 
     public Cor findId(String _id) {
         Optional<Cor> obj = corRepository.findById(_id);
@@ -49,6 +56,19 @@ public class CorServiceImpl implements CorService {
         catch (DataIntegrityViolationException e) {
             throw new DataIntegrityException("Não é possível excluir uma cor que possui produtos");
         }
+    }
+
+    public Flux<Cor> findAll( ) {
+        Flux<Cor> obj = corReactiveRespository.findAll();
+        return corReactiveRespository.findAll();
+    }
+
+    public Mono<Cor> findById(String id) {
+        return null;
+    }
+
+    public Mono<Cor> save(Cor cor) {
+        return null;
     }
 
     public Page<Cor> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {

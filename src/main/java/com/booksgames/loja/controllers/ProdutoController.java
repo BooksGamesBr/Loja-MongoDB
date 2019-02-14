@@ -2,6 +2,7 @@ package com.booksgames.loja.controllers;
 
 import com.booksgames.loja.documents.Produto;
 import com.booksgames.loja.dto.ProdutoDTO;
+import com.booksgames.loja.dto.ProdutoNewDTO;
 import com.booksgames.loja.repository.ProdutoRepository;
 import com.booksgames.loja.util.URL;
 import com.booksgames.loja.services.impl.ProdutoServiceImpl;
@@ -46,7 +47,7 @@ public class ProdutoController {
   }
 
   @RequestMapping(value = "/", method = RequestMethod.POST)
-  public ResponseEntity<Void> createProduto(@Valid @RequestBody ProdutoDTO objDto) {
+  public ResponseEntity<Void> createProduto(@Valid @RequestBody Produto objDto) {
     Produto obj = produtoServiceImpl.fromDTO(objDto);
     obj = produtoServiceImpl.insert(obj);
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest()

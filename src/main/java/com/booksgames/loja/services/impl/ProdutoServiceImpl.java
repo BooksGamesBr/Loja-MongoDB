@@ -1,6 +1,5 @@
 package com.booksgames.loja.services.impl;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +12,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.booksgames.loja.documents.Produto;
-import com.booksgames.loja.dto.ProdutoDTO;
 import com.booksgames.loja.repository.ProdutoRepository;
 import com.booksgames.loja.services.exceptions.DataIntegrityException;
 import com.booksgames.loja.services.exceptions.ObjectNotFoundException;
@@ -64,11 +62,13 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     public String _id;
 
-    public Produto fromDTO(ProdutoDTO objDto) {
+    public Produto fromDTO(Produto objDto) {
         return new Produto(
                 objDto.get_id(),
                 objDto.getDescricao(),
-                objDto.getPreco(),null,null,
+                objDto.getPreco(),
+                objDto.getGrupo(),
+                objDto.getCor(),
                 objDto.getDatacadastro());
     }
 
