@@ -11,6 +11,12 @@ import com.booksgames.loja.documents.Cliente;
 import com.booksgames.loja.responses.Response;
 import com.booksgames.loja.services.ClienteService;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 @RestController
 @RequestMapping(path = "clientes")
 public class ClienteController {

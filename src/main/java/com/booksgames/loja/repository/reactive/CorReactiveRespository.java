@@ -4,7 +4,11 @@ import com.booksgames.loja.documents.Cor;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Flux;
 
-import java.util.List;
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
 
 public interface CorReactiveRespository extends ReactiveMongoRepository<Cor, String>{
 

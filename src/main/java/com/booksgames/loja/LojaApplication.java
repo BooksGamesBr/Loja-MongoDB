@@ -6,6 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 @SpringBootApplication
 public class LojaApplication {
 

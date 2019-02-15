@@ -4,7 +4,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
+
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
 
 @Document(collection = "cidade")
 public class Cidade implements Serializable {

@@ -5,10 +5,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
 
 @Document(collection = "produto")
 public class Produto {

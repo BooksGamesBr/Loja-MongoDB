@@ -12,6 +12,12 @@ import com.booksgames.loja.repository.PetsRepository;
 import com.booksgames.loja.services.PetsService;
 import com.booksgames.loja.responses.Response;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 @RestController
 @RequestMapping("/pets")
 public class PetsController {

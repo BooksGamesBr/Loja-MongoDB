@@ -3,6 +3,12 @@ package com.booksgames.loja.documents;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 @Document(collection = "grupo")
 public class Grupo {
     private static final long serialVersionUID = 1L;

@@ -1,7 +1,6 @@
 package com.booksgames.loja.services.impl;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +8,12 @@ import org.springframework.stereotype.Service;
 import com.booksgames.loja.documents.Cliente;
 import com.booksgames.loja.services.ClienteService;
 import com.booksgames.loja.repository.ClienteRepository;
+
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
 
 @Service
 public class ClienteServiceImpl implements ClienteService {

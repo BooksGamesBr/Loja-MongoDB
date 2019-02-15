@@ -9,6 +9,12 @@ import java.util.Date;
 import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 public class ProdutoNewDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 

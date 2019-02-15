@@ -3,7 +3,11 @@ package com.booksgames.loja.repository;
 import com.booksgames.loja.documents.Produto;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import java.util.List;
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
 
 public interface ProdutoRepository extends MongoRepository<Produto, String> {
 

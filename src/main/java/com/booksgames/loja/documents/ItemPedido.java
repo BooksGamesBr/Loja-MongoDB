@@ -1,13 +1,17 @@
 package com.booksgames.loja.documents;
 
-
 import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.Locale;
-import javax.persistence.Entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
 
 @Document(collection = "itempedido")
 public class ItemPedido implements Serializable {

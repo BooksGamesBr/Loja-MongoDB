@@ -2,6 +2,12 @@ package com.booksgames.loja.responses;
 
 import java.util.List;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 public class Response<T> {
 
     private T data;

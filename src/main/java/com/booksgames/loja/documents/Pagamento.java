@@ -5,6 +5,12 @@ import org.springframework.data.annotation.Id;
 import com.booksgames.loja.documents.enums.EstadoPagamento;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 @Document(collection = "pagamento")
 public abstract class Pagamento implements Serializable {
     private static final long serialVersionUID = 1L;

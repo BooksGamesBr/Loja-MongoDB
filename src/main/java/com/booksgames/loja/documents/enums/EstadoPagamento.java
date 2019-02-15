@@ -1,5 +1,11 @@
 package com.booksgames.loja.documents.enums;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 public enum EstadoPagamento {
 
     PENDENTE(1, "Pendente"),

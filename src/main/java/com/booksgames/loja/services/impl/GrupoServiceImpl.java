@@ -17,6 +17,12 @@ import com.booksgames.loja.services.exceptions.DataIntegrityException;
 import com.booksgames.loja.services.exceptions.ObjectNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 @Service
 public class GrupoServiceImpl implements GrupoService {
 

@@ -3,7 +3,12 @@ package com.booksgames.loja.documents;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import reactor.core.publisher.Mono;
+
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
 
 @Document(collection = "cor")
 public class Cor{

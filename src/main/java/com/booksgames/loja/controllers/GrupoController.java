@@ -17,6 +17,12 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 @RestController
 @RequestMapping("/grupos")
 public class GrupoController {

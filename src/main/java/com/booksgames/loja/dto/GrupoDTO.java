@@ -3,6 +3,12 @@ package com.booksgames.loja.dto;
 import com.booksgames.loja.documents.Grupo;
 import java.io.Serializable;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 public class GrupoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 

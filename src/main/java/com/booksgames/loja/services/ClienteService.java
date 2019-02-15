@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.booksgames.loja.documents.Cliente;
 
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
+
 public interface ClienteService {
 
     List<Cliente> listarTodos();

@@ -4,7 +4,11 @@ import com.booksgames.loja.documents.Cor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
+/**
+ * @author Jose R F Junior
+ * web2ajax@gmail.com
+ * Santiago Chile 15 02 2019
+ */
 
 public interface CorService {
    /* List<Cor> findAll();
@@ -21,5 +25,4 @@ public interface CorService {
     Mono<Cor> save(Cor cor);
 
     //List<Cor> findByNomeGoogle();
-
 }
