@@ -11,4 +11,5 @@ public interface CorRepository extends MongoRepository<Cor, String> {
     Cor update(String id);
     void delete(String id);*/
     Cor findBy_id(String _id);
+    //List<Cor> findByNomeGoogle();
 }

@@ -4,14 +4,13 @@ import com.booksgames.loja.documents.Cor;
 import com.booksgames.loja.dto.CorDTO;
 import com.booksgames.loja.repository.CorRepository;
 import com.booksgames.loja.repository.reactive.CorReactiveRespository;
-import com.booksgames.loja.services.CorService;
-import com.booksgames.loja.services.impl.CorReactiveServiceImpl;
 import com.booksgames.loja.services.impl.CorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -43,6 +42,21 @@ public class CorController {
     @GetMapping(value="/cor/{id}")
     public Mono<Cor> getCorId(@PathVariable String id){
         return corServiceImpl.findById(id);
+    }
+
+    @GetMapping(value="/cor/nome/{nome}")
+    public Flux<Cor> getCorNome(@PathVariable String nome){
+        return corServiceImpl.findByNome(nome);
+    }
+
+    @RequestMapping(value="/cor/nome/google", method=RequestMethod.GET)
+    public ResponseEntity<List<CorDTO>> findAll() {
+        List<Cor> list = corServiceImpl.findByNomeGoogle();
+        List<CorDTO> listDto = list.stream()
+                //.map(obj -> new CorDTO(obj))
+                .map( CorDTO::new)
+                .collect( Collectors.toList());
+        return ResponseEntity.ok().body(listDto);
     }
 
     @PostMapping(value="/cor")

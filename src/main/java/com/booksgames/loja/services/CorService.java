@@ -4,6 +4,8 @@ import com.booksgames.loja.documents.Cor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 public interface CorService {
    /* List<Cor> findAll();
     List<Cor> findId(String id);*/
@@ -15,6 +17,9 @@ public interface CorService {
     //WebFluxo
     Flux<Cor> findAll();
     Mono<Cor> findById(String id);
+    Flux<Cor> findByNome(String nome);
     Mono<Cor> save(Cor cor);
+
+    //List<Cor> findByNomeGoogle();
 
 }

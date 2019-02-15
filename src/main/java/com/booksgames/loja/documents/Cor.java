@@ -3,9 +3,10 @@ package com.booksgames.loja.documents;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import reactor.core.publisher.Mono;
 
 @Document(collection = "cor")
-public class Cor {
+public class Cor{
     private static final long serialVersionUID = 1L;
 
     @Id

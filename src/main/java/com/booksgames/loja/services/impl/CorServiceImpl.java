@@ -57,18 +57,26 @@ public class CorServiceImpl implements CorService {
             throw new DataIntegrityException("Não é possível excluir uma cor que possui produtos");
         }
     }
-
+    // WEB FLUX METODOS
     public Flux<Cor> findAll( ) {
         Flux<Cor> obj = corReactiveRespository.findAll();
         return corReactiveRespository.findAll();
     }
 
     public Mono<Cor> findById(String id) {
-        return null;
+        return corReactiveRespository.findById( id );
+    }
+
+    public Flux<Cor>  findByNome(String nome) {
+        return corReactiveRespository.findByNome( nome );
+    }
+
+    public List<Cor> findByNomeGoogle() {
+          return corRepository.findAll();
     }
 
     public Mono<Cor> save(Cor cor) {
-        return null;
+        return corReactiveRespository.save( cor );
     }
 
     public Page<Cor> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
