@@ -5,13 +5,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author Jose R F Junior
  * web2ajax@gmail.com
  * Santiago Chile 15 02 2019
  */
-
+@ComponentScan(basePackages = {"com.booksgames.loja"})
 @SpringBootApplication
 public class LojaApplication {
 
