@@ -19,7 +19,7 @@ public class ProdutoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public String _id;
-    private UUID contentId;
+    private UUID uuid;
     public String descricao;
     public Double preco;
     public Embalagem embalagem;
@@ -40,7 +40,7 @@ public class ProdutoDTO implements Serializable {
 
     public ProdutoDTO(Produto obj) {
         _id = obj.get_id();
-        contentId = obj.getContentId();
+        uuid = obj.getUuid();
         descricao = obj.getDescricao();
         preco = obj.getPreco();
         embalagem = obj.getEmbalagem();
@@ -61,7 +61,7 @@ public class ProdutoDTO implements Serializable {
         if (!(o instanceof ProdutoDTO)) return false;
         ProdutoDTO that = (ProdutoDTO) o;
         return Objects.equals(get_id(), that.get_id()) &&
-                Objects.equals(getContentId(), that.getContentId()) &&
+                Objects.equals(getUuid(), that.getUuid()) &&
                 Objects.equals(getDescricao(), that.getDescricao()) &&
                 Objects.equals(getPreco(), that.getPreco()) &&
                 Objects.equals(getEmbalagem(), that.getEmbalagem()) &&
@@ -78,7 +78,7 @@ public class ProdutoDTO implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(get_id(), getContentId(), getDescricao(), getPreco(), getEmbalagem(), getDurabilidade(), getPeso(), getRotulagem(), getStatus(), getGrupo(), getCor(), getMarca(), getImagem(), getDatacadastro());
+        return Objects.hash(get_id(), getUuid(), getDescricao(), getPreco(), getEmbalagem(), getDurabilidade(), getPeso(), getRotulagem(), getStatus(), getGrupo(), getCor(), getMarca(), getImagem(), getDatacadastro());
     }
 
     public String get_id() {
@@ -89,12 +89,12 @@ public class ProdutoDTO implements Serializable {
         this._id = _id;
     }
 
-    public UUID getContentId() {
-        return contentId;
+    public UUID getUuid() {
+        return uuid;
     }
 
-    public void setContentId(UUID contentId) {
-        this.contentId = contentId;
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 
     public String getDescricao() {

@@ -6,10 +6,14 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import com.mongodb.gridfs.GridFS;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 
 /**
  * @author Jose R F Junior
@@ -26,7 +30,12 @@ public class Produto implements Serializable {
 
   @Id
   public String _id;
-  private UUID contentId;
+
+  @GeneratedValue(generator = "uuid")
+  @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+  @Column(name = "uuid", columnDefinition = "VARCHAR(255)")
+  private UUID uuid;
+
   public String descricao;
   public Double preco;
   public Embalagem embalagem;
@@ -55,11 +64,11 @@ public class Produto implements Serializable {
   private List<Embalagem> embalagems = new ArrayList<>();
   
   // Constructors
-   public Produto(String _id, UUID contentId, String descricao, Double preco, Embalagem embalagem,
+   public Produto(String _id, UUID uuid, String descricao, Double preco, Embalagem embalagem,
                   String durabilidade, Double peso, String rotulagem, String status,
                   Grupo grupo, Cor cor, Marca marca, GridFS imagem, Date datacadastro) {
     this._id = _id;
-    this.contentId = contentId;
+    this.uuid = uuid;
     this.descricao = descricao;
     this.preco = preco;
     this.embalagem = embalagem;
@@ -84,7 +93,7 @@ public class Produto implements Serializable {
     if (!(o instanceof Produto)) return false;
     Produto produto = (Produto) o;
     return Objects.equals(get_id(), produto.get_id()) &&
-            Objects.equals(getContentId(), produto.getContentId()) &&
+            Objects.equals(getUuid(), produto.getUuid()) &&
             Objects.equals(getDescricao(), produto.getDescricao()) &&
             Objects.equals(getPreco(), produto.getPreco()) &&
             Objects.equals(getEmbalagem(), produto.getEmbalagem()) &&
@@ -105,7 +114,7 @@ public class Produto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(get_id(), getContentId(), getDescricao(), getPreco(), getEmbalagem(), getDurabilidade(), getPeso(), getRotulagem(), getStatus(), getGrupo(), getCor(), getMarca(), getImagem(), getDatacadastro(), getGrupos(), getCors(), getMarcas(), getEmbalagems());
+    return Objects.hash(get_id(), getUuid(), getDescricao(), getPreco(), getEmbalagem(), getDurabilidade(), getPeso(), getRotulagem(), getStatus(), getGrupo(), getCor(), getMarca(), getImagem(), getDatacadastro(), getGrupos(), getCors(), getMarcas(), getEmbalagems());
   }
 
   public String get_id() {
@@ -116,12 +125,12 @@ public class Produto implements Serializable {
     this._id = _id;
   }
 
-  public UUID getContentId() {
-    return contentId;
+  public UUID getUuid() {
+    return uuid;
   }
 
-  public void setContentId(UUID contentId) {
-    this.contentId = contentId;
+  public void setUuid(UUID uuid) {
+    this.uuid = uuid;
   }
 
   public String getDescricao() {
@@ -259,6 +268,8 @@ public class Produto implements Serializable {
     StringBuilder builder = new StringBuilder();
     builder.append(", Codigo: ");
     builder.append(get_id());
+    builder.append(", Uuid: ");
+    builder.append(getUuid());
     builder.append(", Descricao: ");
     builder.append(getDescricao());
     builder.append(", Preco: ");

@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 
 public interface EmbalagemService {
 
-    Embalagem insert(Embalagem marca);
+    Embalagem insert(Embalagem embalagem);
     Embalagem update(String id);
     void delete(String id);
 
@@ -20,6 +20,6 @@ public interface EmbalagemService {
     Flux<Embalagem> findAll();
     Mono<Embalagem> findById(String id);
     Flux<Embalagem> findByDescricao(String descricao);
-    Mono<Embalagem> save(Embalagem marca);
+    Mono<Embalagem> save(Embalagem embalagem);
 
 }

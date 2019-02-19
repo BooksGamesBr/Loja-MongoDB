@@ -87,7 +87,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     public Produto fromDTO(Produto objDto) {
         return new Produto(
                 objDto.get_id(),
-                objDto.getContentId(),
+                objDto.getUuid(),
                 objDto.getDescricao(),
                 objDto.getPreco(),
                 objDto.getEmbalagem(),
