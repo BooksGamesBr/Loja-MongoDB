@@ -3,6 +3,8 @@ package com.booksgames.loja.services.impl;
 import java.util.List;
 import java.util.Optional;
 
+import com.booksgames.loja.documents.Cor;
+import com.booksgames.loja.repository.reactive.ProdutoReactiveRespository;
 import com.booksgames.loja.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -16,6 +18,7 @@ import com.booksgames.loja.repository.ProdutoRepository;
 import com.booksgames.loja.services.exceptions.DataIntegrityException;
 import com.booksgames.loja.services.exceptions.ObjectNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Mono;
 
 /**
  * @author Jose R F Junior
@@ -29,6 +32,9 @@ public class ProdutoServiceImpl implements ProdutoService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
+    @Autowired
+    private ProdutoReactiveRespository produtoReactiveRespository;
+
     private static ObjectNotFoundException get() {
         return new ObjectNotFoundException(
                 "Objeto não encontrado! Id: , Tipo: " + Produto.class.getName());
@@ -39,7 +45,8 @@ public class ProdutoServiceImpl implements ProdutoService {
         return obj.orElseThrow(ProdutoServiceImpl::get);
     }
 
-    public List<Produto> findAll() {
+    public List<Produto> findAll()
+    {
         return produtoRepository.findAll();
     }
 
@@ -49,12 +56,18 @@ public class ProdutoServiceImpl implements ProdutoService {
         return produtoRepository.save(obj);
     }
 
+    public Mono<Produto> save(Produto produto) {
+        return produtoReactiveRespository.save( produto );
+    }
+
+    @Transactional
     public Produto update(String _id) {
         Produto newObj = findId(_id);
         updateData(newObj, newObj);
         return produtoRepository.save(newObj);
     }
 
+    @Transactional
     public void delete(String _id) {
         findId(_id);
         try {

@@ -4,6 +4,8 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
+
 /**
  * @author Jose R F Junior
  * web2ajax@gmail.com
@@ -11,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 
 @Document(collection = "cor")
-public class Cor{
+public class Cor implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

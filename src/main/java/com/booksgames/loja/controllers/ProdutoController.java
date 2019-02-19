@@ -52,7 +52,7 @@ public class ProdutoController {
     produtoRepository.save(produto);
   }
 
-  @RequestMapping(value = "/", method = RequestMethod.POST)
+  @PostMapping(value = "/")
   public ResponseEntity<Void> createProduto(@Valid @RequestBody Produto objDto) {
     Produto obj = produtoServiceImpl.fromDTO(objDto);
     obj = produtoServiceImpl.insert(obj);

@@ -36,10 +36,14 @@ public class CorServiceImpl implements CorService {
     @Autowired
     private  CorReactiveRespository corReactiveRespository;
 
+    private static ObjectNotFoundException get() {
+        return new ObjectNotFoundException(
+                "Objeto não encontrado! Id: , Tipo: " + Cor.class.getName());
+    }
+
     public Cor findId(String _id) {
         Optional<Cor> obj = corRepository.findById(_id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException(
-                "Objeto não encontrado! Id: " + _id + ", Tipo: " + Cor.class.getName()));
+        return obj.orElseThrow(CorServiceImpl::get);
     }
 
     @Transactional
@@ -48,12 +52,14 @@ public class CorServiceImpl implements CorService {
         return corRepository.save(obj);
     }
 
+    @Transactional
     public Cor update(String _id) {
         Cor newObj = findId(_id);
         updateData(newObj, newObj);
         return corRepository.save(newObj);
     }
 
+    @Transactional
     public void delete(String _id) {
         findId(_id);
         try {
@@ -91,7 +97,10 @@ public class CorServiceImpl implements CorService {
     }
 
     public Cor fromDTO(CorDTO objDto) {
-        return new Cor(objDto.get_id(), objDto.getNome(),objDto.getHex());
+        return new Cor(
+                objDto.get_id(),
+                objDto.getNome(),
+                objDto.getHex());
     }
 
     private void updateData(Cor newObj, Cor obj) {

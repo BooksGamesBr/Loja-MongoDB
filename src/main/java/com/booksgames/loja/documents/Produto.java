@@ -29,9 +29,9 @@ public class Produto implements Serializable {
   public Double preco;
   public Embalagem embalagem;
   public String durabilidade;
-  public Long peso;
+  public Double peso;
   public String rotulagem;
-  public Boolean Status;
+  public String status;
   public Grupo grupo;
   public Cor cor;
   public Marca marca;
@@ -53,7 +53,9 @@ public class Produto implements Serializable {
   private List<Embalagem> embalagems = new ArrayList<>();
   
   // Constructors
-   public Produto(String _id, String descricao, Double preco, Embalagem embalagem, String durabilidade, Long peso, String rotulagem, Boolean status, Grupo grupo, Cor cor, Marca marca, Imagem imagem, Date datacadastro) {
+   public Produto(String _id, String descricao, Double preco, Embalagem embalagem,
+                  String durabilidade, Double peso, String rotulagem, String status,
+                  Grupo grupo, Cor cor, Marca marca, Imagem imagem, Date datacadastro) {
     this._id = _id;
     this.descricao = descricao;
     this.preco = preco;
@@ -61,7 +63,7 @@ public class Produto implements Serializable {
     this.durabilidade = durabilidade;
     this.peso = peso;
     this.rotulagem = rotulagem;
-    Status = status;
+    this.status =  status;
     this.grupo = grupo;
     this.cor = cor;
     this.marca = marca;
@@ -71,6 +73,35 @@ public class Produto implements Serializable {
     this.cors = cors;
     this.marcas = marcas;
     this.embalagems = embalagems;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Produto)) return false;
+    Produto produto = (Produto) o;
+    return Objects.equals(get_id(), produto.get_id()) &&
+            Objects.equals(getDescricao(), produto.getDescricao()) &&
+            Objects.equals(getPreco(), produto.getPreco()) &&
+            Objects.equals(getEmbalagem(), produto.getEmbalagem()) &&
+            Objects.equals(getDurabilidade(), produto.getDurabilidade()) &&
+            Objects.equals(getPeso(), produto.getPeso()) &&
+            Objects.equals(getRotulagem(), produto.getRotulagem()) &&
+            Objects.equals(getStatus(), produto.getStatus()) &&
+            Objects.equals(getGrupo(), produto.getGrupo()) &&
+            Objects.equals(getCor(), produto.getCor()) &&
+            Objects.equals(getMarca(), produto.getMarca()) &&
+            Objects.equals(getImagem(), produto.getImagem()) &&
+            Objects.equals(getDatacadastro(), produto.getDatacadastro()) &&
+            Objects.equals(getGrupos(), produto.getGrupos()) &&
+            Objects.equals(getCors(), produto.getCors()) &&
+            Objects.equals(getMarcas(), produto.getMarcas()) &&
+            Objects.equals(getEmbalagems(), produto.getEmbalagems());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(get_id(), getDescricao(), getPreco(), getEmbalagem(), getDurabilidade(), getPeso(), getRotulagem(), getStatus(), getGrupo(), getCor(), getMarca(), getImagem(), getDatacadastro(), getGrupos(), getCors(), getMarcas(), getEmbalagems());
   }
 
   public String get_id() {
@@ -113,11 +144,11 @@ public class Produto implements Serializable {
     this.durabilidade = durabilidade;
   }
 
-  public Long getPeso() {
+  public Double getPeso() {
     return peso;
   }
 
-  public void setPeso(Long peso) {
+  public void setPeso(Double peso) {
     this.peso = peso;
   }
 
@@ -129,12 +160,12 @@ public class Produto implements Serializable {
     this.rotulagem = rotulagem;
   }
 
-  public Boolean getStatus() {
-    return Status;
+  public String getStatus() {
+    return status;
   }
 
-  public void setStatus(Boolean status) {
-    Status = status;
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   public Grupo getGrupo() {
