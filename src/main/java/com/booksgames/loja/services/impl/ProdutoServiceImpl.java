@@ -3,7 +3,6 @@ package com.booksgames.loja.services.impl;
 import java.util.List;
 import java.util.Optional;
 
-import com.booksgames.loja.documents.Cor;
 import com.booksgames.loja.repository.reactive.ProdutoReactiveRespository;
 import com.booksgames.loja.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +87,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     public Produto fromDTO(Produto objDto) {
         return new Produto(
                 objDto.get_id(),
+                objDto.getContentId(),
                 objDto.getDescricao(),
                 objDto.getPreco(),
                 objDto.getEmbalagem(),

@@ -2,10 +2,12 @@ package com.booksgames.loja.dto;
 
 import com.booksgames.loja.documents.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.mongodb.gridfs.GridFS;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * @author Jose R F Junior
@@ -17,6 +19,7 @@ public class ProdutoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public String _id;
+    private UUID contentId;
     public String descricao;
     public Double preco;
     public Embalagem embalagem;
@@ -27,7 +30,7 @@ public class ProdutoDTO implements Serializable {
     public Grupo grupo;
     public Cor cor;
     public Marca marca;
-    public Imagem imagem;
+    public GridFS imagem;
 
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date datacadastro;
@@ -37,6 +40,7 @@ public class ProdutoDTO implements Serializable {
 
     public ProdutoDTO(Produto obj) {
         _id = obj.get_id();
+        contentId = obj.getContentId();
         descricao = obj.getDescricao();
         preco = obj.getPreco();
         embalagem = obj.getEmbalagem();
@@ -57,6 +61,7 @@ public class ProdutoDTO implements Serializable {
         if (!(o instanceof ProdutoDTO)) return false;
         ProdutoDTO that = (ProdutoDTO) o;
         return Objects.equals(get_id(), that.get_id()) &&
+                Objects.equals(getContentId(), that.getContentId()) &&
                 Objects.equals(getDescricao(), that.getDescricao()) &&
                 Objects.equals(getPreco(), that.getPreco()) &&
                 Objects.equals(getEmbalagem(), that.getEmbalagem()) &&
@@ -73,7 +78,7 @@ public class ProdutoDTO implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(get_id(), getDescricao(), getPreco(), getEmbalagem(), getDurabilidade(), getPeso(), getRotulagem(), getStatus(), getGrupo(), getCor(), getMarca(), getImagem(), getDatacadastro());
+        return Objects.hash(get_id(), getContentId(), getDescricao(), getPreco(), getEmbalagem(), getDurabilidade(), getPeso(), getRotulagem(), getStatus(), getGrupo(), getCor(), getMarca(), getImagem(), getDatacadastro());
     }
 
     public String get_id() {
@@ -82,6 +87,14 @@ public class ProdutoDTO implements Serializable {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    public UUID getContentId() {
+        return contentId;
+    }
+
+    public void setContentId(UUID contentId) {
+        this.contentId = contentId;
     }
 
     public String getDescricao() {
@@ -164,11 +177,11 @@ public class ProdutoDTO implements Serializable {
         this.marca = marca;
     }
 
-    public Imagem getImagem() {
+    public GridFS getImagem() {
         return imagem;
     }
 
-    public void setImagem(Imagem imagem) {
+    public void setImagem(GridFS imagem) {
         this.imagem = imagem;
     }
 

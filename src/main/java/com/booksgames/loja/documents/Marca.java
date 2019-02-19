@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Santiago Chile 15 02 2019
  */
 
-@Document(collection = "Marca")
+@Document(collection = "marca")
 public class Marca {
     private static final long serialVersionUID = 1L;
 

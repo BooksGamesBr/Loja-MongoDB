@@ -1,7 +1,6 @@
-package com.booksgames.loja.documents;
+package com.booksgames.loja.dto;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.booksgames.loja.documents.Marca;
 
 import java.io.Serializable;
 
@@ -11,20 +10,18 @@ import java.io.Serializable;
  * Santiago Chile 15 02 2019
  */
 
-@Document(collection = "embalagem")
-public class Embalagem implements Serializable {
+public class MarcaDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Id
-    public String _id;
-    public String descricao;
+    private String _id;
+    private String descricao;
 
-    // Constructors
-    public Embalagem() {}
+    public MarcaDTO() {
+    }
 
-    public Embalagem(String _id, String descricao) {
-        this._id = _id;
-        this.descricao = descricao;
+    public MarcaDTO(Marca obj) {
+        _id = obj.get_id();
+        descricao = obj.getDescricao();
     }
 
     public String get_id() {

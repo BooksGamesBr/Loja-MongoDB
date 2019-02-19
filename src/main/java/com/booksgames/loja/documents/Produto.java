@@ -5,6 +5,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import com.mongodb.gridfs.GridFS;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -25,6 +26,7 @@ public class Produto implements Serializable {
 
   @Id
   public String _id;
+  private UUID contentId;
   public String descricao;
   public Double preco;
   public Embalagem embalagem;
@@ -35,7 +37,7 @@ public class Produto implements Serializable {
   public Grupo grupo;
   public Cor cor;
   public Marca marca;
-  public Imagem imagem;
+  public GridFS imagem;
 
   @JsonFormat(pattern="dd/MM/yyyy HH:mm")
   public Date datacadastro;
@@ -53,10 +55,11 @@ public class Produto implements Serializable {
   private List<Embalagem> embalagems = new ArrayList<>();
   
   // Constructors
-   public Produto(String _id, String descricao, Double preco, Embalagem embalagem,
+   public Produto(String _id, UUID contentId, String descricao, Double preco, Embalagem embalagem,
                   String durabilidade, Double peso, String rotulagem, String status,
-                  Grupo grupo, Cor cor, Marca marca, Imagem imagem, Date datacadastro) {
+                  Grupo grupo, Cor cor, Marca marca, GridFS imagem, Date datacadastro) {
     this._id = _id;
+    this.contentId = contentId;
     this.descricao = descricao;
     this.preco = preco;
     this.embalagem = embalagem;
@@ -81,6 +84,7 @@ public class Produto implements Serializable {
     if (!(o instanceof Produto)) return false;
     Produto produto = (Produto) o;
     return Objects.equals(get_id(), produto.get_id()) &&
+            Objects.equals(getContentId(), produto.getContentId()) &&
             Objects.equals(getDescricao(), produto.getDescricao()) &&
             Objects.equals(getPreco(), produto.getPreco()) &&
             Objects.equals(getEmbalagem(), produto.getEmbalagem()) &&
@@ -101,7 +105,7 @@ public class Produto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(get_id(), getDescricao(), getPreco(), getEmbalagem(), getDurabilidade(), getPeso(), getRotulagem(), getStatus(), getGrupo(), getCor(), getMarca(), getImagem(), getDatacadastro(), getGrupos(), getCors(), getMarcas(), getEmbalagems());
+    return Objects.hash(get_id(), getContentId(), getDescricao(), getPreco(), getEmbalagem(), getDurabilidade(), getPeso(), getRotulagem(), getStatus(), getGrupo(), getCor(), getMarca(), getImagem(), getDatacadastro(), getGrupos(), getCors(), getMarcas(), getEmbalagems());
   }
 
   public String get_id() {
@@ -110,6 +114,14 @@ public class Produto implements Serializable {
 
   public void set_id(String _id) {
     this._id = _id;
+  }
+
+  public UUID getContentId() {
+    return contentId;
+  }
+
+  public void setContentId(UUID contentId) {
+    this.contentId = contentId;
   }
 
   public String getDescricao() {
@@ -192,11 +204,11 @@ public class Produto implements Serializable {
     this.marca = marca;
   }
 
-  public Imagem getImagem() {
+  public GridFS getImagem() {
     return imagem;
   }
 
-  public void setImagem(Imagem imagem) {
+  public void setImagem(GridFS imagem) {
     this.imagem = imagem;
   }
 

@@ -7,6 +7,7 @@ import com.booksgames.loja.documents.Marca;
 import com.booksgames.loja.documents.Produto;
 import com.booksgames.loja.repository.CorRepository;
 import com.booksgames.loja.repository.GrupoRepository;
+import com.booksgames.loja.repository.MarcaRepository;
 import com.booksgames.loja.repository.ProdutoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +33,9 @@ public class Instantiation  implements CommandLineRunner {
     @Autowired
     private GrupoRepository grupoRepository;
 
+    @Autowired
+    private MarcaRepository marcaRepository;
+
     @Override
     public void run(String... arg0) throws Exception {
 
@@ -42,24 +46,30 @@ public class Instantiation  implements CommandLineRunner {
         Cor PRETO = new Cor(null, "PRETO", "XXXXX");
         Marca MARCA = new Marca(null, "MARCA X");
 
-        Produto COMPUTADOR = new Produto(null,"COMPUTADOR", 4.1, null,
+        Produto COMPUTADOR = new Produto(null, null, "COMPUTADOR", 4.1, null,
+                "SIM", 82.0, "SIM", "Ativo", GRUPOA,
+                PRETO, MARCA, null,
+                sdf.parse("21/03/2018"));
+
+        Produto CELULAR = new Produto(null, null, "CELULAR", 4.1, null,
                 "SIM", 82.0, "SIM", "Ativo", null,
                 PRETO, null, null,
                 sdf.parse("21/03/2018"));
 
-        Produto CELULAR = new Produto(null,"CELULAR", 4.1, null,
-                "SIM", 82.0, "SIM", "Ativo", null,
-                PRETO, null, null,
-                sdf.parse("21/03/2018"));
-
-
-
+        grupoRepository.saveAll(Arrays.asList(GRUPOA));
         corRepository.saveAll(Arrays.asList(PRETO));
-        corRepository.save(PRETO);
+        marcaRepository.saveAll(Arrays.asList(MARCA));
 
+        grupoRepository.save(GRUPOA);
+        corRepository.save(PRETO);
+        marcaRepository.save(MARCA);
+
+        grupoRepository.saveAll(Arrays.asList(GRUPOA));
+        corRepository.saveAll(Arrays.asList(PRETO));
+        marcaRepository.saveAll(Arrays.asList(MARCA));
         produtoRepository.saveAll(Arrays.asList(COMPUTADOR, CELULAR));
 
         produtoRepository.save(COMPUTADOR);
 
-    }
+       }
 }
