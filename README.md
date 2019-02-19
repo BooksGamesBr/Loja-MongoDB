@@ -1,5 +1,5 @@
-![](./doc/cor.png)
-![](./doc/cor2.png)
+![](./src/doc/cor.png)
+![](./src/doc/cor2.png)
 # LOJA
 # Loja-MongoDB # Importar csv
  mongoimport -d loja -c cor --type csv --headerline --file dir/cor.csv
