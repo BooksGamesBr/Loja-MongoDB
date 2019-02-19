@@ -5,62 +5,46 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-@Entity
-@Table(name = "impostos", schema = "public")
 public class Imposto implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Integer orig;
 
-    @Column(precision = 21, scale = 10)
     private BigDecimal alqcred;
 
     private Integer modbc;
 
-    @Column(precision = 21, scale = 10)
     private BigDecimal percredbc;
 
     private Integer modbcst;
 
-    @Column(precision = 21, scale = 10)
     private BigDecimal mva;
 
     @Column(precision = 21, scale = 10)
     private BigDecimal alqicmsst;
 
-    @Column(precision = 21, scale = 10)
     private BigDecimal percredbcst;
 
-    @Column(length = 2)
     private String ufst;
 
     private Integer motdesicms;
 
-    @Column(precision = 21, scale = 10)
     private BigDecimal percbcop;
 
-    @Column(length = 120)
     private String descricao;
 
-    @Column(length = 4)
     private String cfopent;
 
-    @Column(length = 4)
     private String cfopsai;
 
-    @Column(length = 4)
     private String cfopsaiest;
 
-    @Column(length = 4)
     private String cfopsaif;
 
-    @Column(length = 4)
     private String cfopentf;
 
-    @Column(length = 4)
     private String aliquota;
 
     @Column(precision = 21, scale = 10)
@@ -96,64 +80,47 @@ public class Imposto implements Serializable {
 
     private Integer pisstcalc;
 
-    @Column(precision = 21, scale = 10)
-    private BigDecimal pisstalqprod;
+     private BigDecimal pisstalqprod;
 
-    @Column(precision = 21, scale = 10)
     private BigDecimal alqpisst;
 
     private Integer cofinscalc;
 
-    @Column(precision = 21, scale = 10)
     private BigDecimal cofinsalqprod;
 
     private Integer cofinsstcalc;
 
-    @Column(precision = 21, scale = 10)
     private BigDecimal cofinsstalqprod;
 
-    @Column(precision = 21, scale = 10)
     private BigDecimal alqcofinsst;
 
-    @Column(length = 5)
     private String clenqipi;
 
-    @Column(length = 18)
     private String cnpjprodipi;
 
-    @Column(length = 60)
     private String codseloipi;
 
     private Integer qtdseloipi;
 
-    @Column(length = 3)
     private String codenqipi;
 
-    @Column(precision = 21, scale = 4)
     private BigDecimal qtdunidipi;
 
-    @Column(precision = 21, scale = 4)
     private BigDecimal valunidipi;
 
-    @Column(length = 3)
     private String cst;
 
-    @Column(length = 4)
     private String csosn;
 
     @Column(nullable = false)
     private boolean defaultz;
 
-    @Column(length = 7)
     private String cest;
 
-    @Column(length = 10)
     private String cbenef;
 
-    @Column(precision = 21, scale = 10)
     private BigDecimal pfcp;
 
-    @Column(precision = 21, scale = 10)
     private BigDecimal pfcpst;
 
     private Ncm ncm;

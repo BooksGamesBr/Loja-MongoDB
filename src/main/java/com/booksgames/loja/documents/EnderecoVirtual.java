@@ -9,21 +9,14 @@ import java.util.Objects;
 public class EnderecoVirtual implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 15)
     private String tipo;
 
-    @Column(length = 100, nullable = false)
     private String descricao;
 
-    @Column(nullable = false)
     private boolean padrao = false;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fkpessoa", nullable = false)
     private Pessoa pessoa;
 
     public EnderecoVirtual() {

@@ -14,7 +14,6 @@ public abstract class Pessoa implements Serializable {
     @Id
     private Long id;
 
-    @Column(name = "nomerazao", length = 60, nullable = false)
     private String nomeRazao;
 
     @Column(nullable = false, updatable = false)

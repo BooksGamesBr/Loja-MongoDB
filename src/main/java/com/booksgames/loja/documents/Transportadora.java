@@ -14,7 +14,6 @@ public class Transportadora implements Serializable {
     @Id
     private Long id;
 
-    @JoinColumn(name = "fkpessoa")
     private Pessoa pessoa;
 
     @Column(nullable = false)

@@ -29,10 +29,14 @@ public class ProdutoServiceImpl implements ProdutoService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
+    private static ObjectNotFoundException get() {
+        return new ObjectNotFoundException(
+                "Objeto não encontrado! Id: , Tipo: " + Produto.class.getName());
+    }
+
     public Produto findId(String _id) {
         Optional<Produto> obj = produtoRepository.findById(_id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException(
-                "Objeto não encontrado! Id: " + _id + ", Tipo: " + Produto.class.getName()));
+        return obj.orElseThrow(ProdutoServiceImpl::get);
     }
 
     public List<Produto> findAll() {

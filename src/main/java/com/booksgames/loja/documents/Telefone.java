@@ -5,12 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "telefone", schema = "public")
 public class Telefone implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 120)
@@ -24,9 +21,6 @@ public class Telefone implements Serializable {
     @Column(nullable = false)
     private boolean padrao = false;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fkpessoa", nullable = false)
     private Pessoa pessoa;
 
     public Telefone() {
