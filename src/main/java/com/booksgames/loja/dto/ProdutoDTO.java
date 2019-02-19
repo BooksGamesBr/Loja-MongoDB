@@ -40,7 +40,7 @@ public class ProdutoDTO implements Serializable {
 
     public ProdutoDTO(Produto obj) {
         _id = obj.get_id();
-        uuid = obj.getUuid();
+        uuid = UUID.randomUUID();
         descricao = obj.getDescricao();
         preco = obj.getPreco();
         embalagem = obj.getEmbalagem();
