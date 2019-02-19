@@ -14,6 +14,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * @author Jose R F Junior
  * web2ajax@gmail.com
  * Santiago Chile 15 02 2019
+ *
+ * Sistema de Classificação Aspinwall
+ *
  */
 
 @Document(collection = "produto")
@@ -22,11 +25,18 @@ public class Produto implements Serializable {
 
   @Id
   public String _id;
-  
   public String descricao;
   public Double preco;
+  public Embalagem embalagem;
+  public String durabilidade;
+  public Long peso;
+  public String rotulagem;
+  public Boolean Status;
   public Grupo grupo;
   public Cor cor;
+  public Marca marca;
+  public Imagem imagem;
+
   @JsonFormat(pattern="dd/MM/yyyy HH:mm")
   public Date datacadastro;
 
@@ -35,17 +45,32 @@ public class Produto implements Serializable {
 
   @DBRef(lazy = true)
   private List<Cor> cors = new ArrayList<>();
+
+  @DBRef(lazy = true)
+  private List<Marca> marcas = new ArrayList<>();
+
+  @DBRef(lazy = true)
+  private List<Embalagem> embalagems = new ArrayList<>();
   
   // Constructors
-  public Produto() {}
-  
-  public Produto(String _id, String descricao, Double preco, Grupo grupo, Cor cor, Date datacadastro) {
+   public Produto(String _id, String descricao, Double preco, Embalagem embalagem, String durabilidade, Long peso, String rotulagem, Boolean status, Grupo grupo, Cor cor, Marca marca, Imagem imagem, Date datacadastro) {
     this._id = _id;
     this.descricao = descricao;
     this.preco = preco;
+    this.embalagem = embalagem;
+    this.durabilidade = durabilidade;
+    this.peso = peso;
+    this.rotulagem = rotulagem;
+    Status = status;
     this.grupo = grupo;
     this.cor = cor;
+    this.marca = marca;
+    this.imagem = imagem;
     this.datacadastro = datacadastro;
+    this.grupos = grupos;
+    this.cors = cors;
+    this.marcas = marcas;
+    this.embalagems = embalagems;
   }
 
   public String get_id() {
@@ -72,6 +97,46 @@ public class Produto implements Serializable {
     this.preco = preco;
   }
 
+  public Embalagem getEmbalagem() {
+    return embalagem;
+  }
+
+  public void setEmbalagem(Embalagem embalagem) {
+    this.embalagem = embalagem;
+  }
+
+  public String getDurabilidade() {
+    return durabilidade;
+  }
+
+  public void setDurabilidade(String durabilidade) {
+    this.durabilidade = durabilidade;
+  }
+
+  public Long getPeso() {
+    return peso;
+  }
+
+  public void setPeso(Long peso) {
+    this.peso = peso;
+  }
+
+  public String getRotulagem() {
+    return rotulagem;
+  }
+
+  public void setRotulagem(String rotulagem) {
+    this.rotulagem = rotulagem;
+  }
+
+  public Boolean getStatus() {
+    return Status;
+  }
+
+  public void setStatus(Boolean status) {
+    Status = status;
+  }
+
   public Grupo getGrupo() {
     return grupo;
   }
@@ -86,6 +151,22 @@ public class Produto implements Serializable {
 
   public void setCor(Cor cor) {
     this.cor = cor;
+  }
+
+  public Marca getMarca() {
+    return marca;
+  }
+
+  public void setMarca(Marca marca) {
+    this.marca = marca;
+  }
+
+  public Imagem getImagem() {
+    return imagem;
+  }
+
+  public void setImagem(Imagem imagem) {
+    this.imagem = imagem;
   }
 
   public Date getDatacadastro() {
@@ -112,24 +193,20 @@ public class Produto implements Serializable {
     this.cors = cors;
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof Produto)) return false;
-    Produto produto = (Produto) o;
-    return get_id().equals(produto.get_id()) &&
-            getDescricao().equals(produto.getDescricao()) &&
-            getPreco().equals(produto.getPreco()) &&
-            getGrupo().equals(produto.getGrupo()) &&
-            getCor().equals(produto.getCor()) &&
-            getDatacadastro().equals(produto.getDatacadastro()) &&
-            getGrupos().equals(produto.getGrupos()) &&
-            getCors().equals(produto.getCors());
+  public List<Marca> getMarcas() {
+    return marcas;
   }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(get_id(), getDescricao(), getPreco(), getGrupo(), getCor(), getDatacadastro(), getGrupos(), getCors());
+  public void setMarcas(List<Marca> marcas) {
+    this.marcas = marcas;
+  }
+
+  public List<Embalagem> getEmbalagems() {
+    return embalagems;
+  }
+
+  public void setEmbalagems(List<Embalagem> embalagems) {
+    this.embalagems = embalagems;
   }
 
   @Override
@@ -147,6 +224,8 @@ public class Produto implements Serializable {
     builder.append(getGrupo());
     builder.append(", Cor: ");
     builder.append(getCor());
+    builder.append(", Marca: ");
+    builder.append(getMarca());
     builder.append(", Data: ");
     builder.append(sdf.format(getDatacadastro()));
     return builder.toString();

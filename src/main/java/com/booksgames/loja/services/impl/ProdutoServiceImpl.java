@@ -73,9 +73,17 @@ public class ProdutoServiceImpl implements ProdutoService {
                 objDto.get_id(),
                 objDto.getDescricao(),
                 objDto.getPreco(),
+                objDto.getEmbalagem(),
+                objDto.getDurabilidade(),
+                objDto.getPeso(),
+                objDto.getRotulagem(),
+                objDto.getStatus(),
                 objDto.getGrupo(),
                 objDto.getCor(),
+                objDto.getMarca(),
+                objDto.getImagem(),
                 objDto.getDatacadastro());
+
     }
 
     private void updateData(Produto newObj, Produto obj) {
