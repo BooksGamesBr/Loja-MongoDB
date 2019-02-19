@@ -1,11 +1,12 @@
 package com.booksgames.loja.documents;
 
+import java.io.Serializable;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.*;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -16,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  */
 
 @Document(collection = "produto")
-public class Produto {
+public class Produto implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @Id
@@ -28,6 +29,12 @@ public class Produto {
   public Cor cor;
   @JsonFormat(pattern="dd/MM/yyyy HH:mm")
   public Date datacadastro;
+
+  @DBRef(lazy = true)
+  private List<Grupo> grupos = new ArrayList<>();
+
+  @DBRef(lazy = true)
+  private List<Cor> cors = new ArrayList<>();
   
   // Constructors
   public Produto() {}
@@ -89,30 +96,40 @@ public class Produto {
     this.datacadastro = datacadastro;
   }
 
+  public List<Grupo> getGrupos() {
+    return grupos;
+  }
+
+  public void setGrupos(List<Grupo> grupos) {
+    this.grupos = grupos;
+  }
+
+  public List<Cor> getCors() {
+    return cors;
+  }
+
+  public void setCors(List<Cor> cors) {
+    this.cors = cors;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (!(o instanceof Produto)) return false;
-
     Produto produto = (Produto) o;
-
-    if (!get_id().equals(produto.get_id())) return false;
-    if (!getDescricao().equals(produto.getDescricao())) return false;
-    if (!getPreco().equals(produto.getPreco())) return false;
-    if (!getGrupo().equals(produto.getGrupo())) return false;
-    if (!getCor().equals(produto.getCor())) return false;
-    return getDatacadastro().equals(produto.getDatacadastro());
+    return get_id().equals(produto.get_id()) &&
+            getDescricao().equals(produto.getDescricao()) &&
+            getPreco().equals(produto.getPreco()) &&
+            getGrupo().equals(produto.getGrupo()) &&
+            getCor().equals(produto.getCor()) &&
+            getDatacadastro().equals(produto.getDatacadastro()) &&
+            getGrupos().equals(produto.getGrupos()) &&
+            getCors().equals(produto.getCors());
   }
 
   @Override
   public int hashCode() {
-    int result = get_id().hashCode();
-    result = 31 * result + getDescricao().hashCode();
-    result = 31 * result + getPreco().hashCode();
-    result = 31 * result + getGrupo().hashCode();
-    result = 31 * result + getCor().hashCode();
-    result = 31 * result + getDatacadastro().hashCode();
-    return result;
+    return Objects.hash(get_id(), getDescricao(), getPreco(), getGrupo(), getCor(), getDatacadastro(), getGrupos(), getCors());
   }
 
   @Override
