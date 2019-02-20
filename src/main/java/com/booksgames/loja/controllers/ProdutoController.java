@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
  * web2ajax@gmail.com
  * Santiago Chile 15 02 2019
  */
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {

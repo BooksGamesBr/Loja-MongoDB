@@ -44,8 +44,7 @@ public class ProdutoServiceImpl implements ProdutoService {
         return obj.orElseThrow(ProdutoServiceImpl::get);
     }
 
-    public List<Produto> findAll()
-    {
+    public List<Produto> findAll() {
         return produtoRepository.findAll();
     }
 
