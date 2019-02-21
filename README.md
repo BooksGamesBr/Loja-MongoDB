@@ -14,7 +14,7 @@ Sistema de Classificação Aspinwall. Ele classifica e atribui nota ao produtos 
 # Loja-MongoDB # Importar csv
  mongoimport -d loja -c cor --type csv --headerline --file dir/cor.csv
 
-# Baixando o mongo
+# Baixando o MongoDB e PostgreSQL e Redis
 docker pull mongo:"4.0.4"
 # Rodando no Docker o mongo
 docker run --name mongo-springboot -p 27017:27017 -d mongo
