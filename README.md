@@ -18,10 +18,11 @@ Sistema de Classificação Aspinwall. Ele classifica e atribui nota ao produtos 
 docker pull mongo:"4.0.4"
 
 # Rodando no Docker o MongoDB
-docker run --name mongo-springboot -p 27017:27017 -d mongo
+docker run -it --name mongo-springboot -p 27017:27017 -d mongo
 
 # Verificando Docker
 docker ps -a
+docker stats
 
 # Executando MongoDB
 docker exec -it mongo-springboot mongo admin
