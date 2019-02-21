@@ -1,4 +1,5 @@
 # :: Spring Boot ::  (v2.2.0.BUILD-SNAPSHOT)
+![](./src/doc/java.png)
 #RESPOSTAS DO SISTEMA
 Sistema de Classificação Aspinwall. Ele classifica e atribui nota ao produtos baseado em cinco variáveis:
 
