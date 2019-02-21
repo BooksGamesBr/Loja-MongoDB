@@ -17,16 +17,16 @@ Sistema de Classificação Aspinwall. Ele classifica e atribui nota ao produtos 
 # Baixando o MongoDB e PostgreSQL e Redis
 docker pull mongo:"4.0.4"
 
-# Rodando no Docker o mongo
+# Rodando no Docker o MongoDB
 docker run --name mongo-springboot -p 27017:27017 -d mongo
 
-# Verificando
+# Verificando Docker
 docker ps -a
 
-# Executando
+# Executando MongoDB
 docker exec -it mongo-springboot mongo admin
 
-# Parando
+# Parando MongoDB
 docker stop mongo-springboot
 
 # Criando PostgreSQL
