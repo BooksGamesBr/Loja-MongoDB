@@ -25,11 +25,13 @@ docker exec -it mongo-springboot mongo admin
 #Parando
 docker stop mongo-springboot
 
-#Criar
+# Criando
 docker run --name zaaldb -e POSTGRES_PASSWORD=debian23 -d postgres
-#Executar
+
+# Executando
 docker exec -it zaaldb psql -U postgres
-#Automatico
+
+# Executando
 docker run --name zaaldb -v "$PWD"/:/opt/zaaldb/ -e POSTGRES_PASSWORD=debian23
 -d postgres
 
