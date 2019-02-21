@@ -16,23 +16,27 @@ Sistema de Classificação Aspinwall. Ele classifica e atribui nota ao produtos 
 
 # Baixando o MongoDB e PostgreSQL e Redis
 docker pull mongo:"4.0.4"
+
 # Rodando no Docker o mongo
 docker run --name mongo-springboot -p 27017:27017 -d mongo
-#Verificando
+
+# Verificando
 docker ps -a
-#Executando o Docker
+
+# Executando
 docker exec -it mongo-springboot mongo admin
-#Parando
+
+# Parando
 docker stop mongo-springboot
 
-# Criando
+# Criando PostgreSQL
 docker run --name zaaldb -e POSTGRES_PASSWORD=debian23 -d postgres
 
-# Executando
+# Executando PostgreSQL
 docker exec -it zaaldb psql -U postgres
 
-# Executando
-docker run --name zaaldb -v "$PWD"/:/opt/zaaldb/ -e POSTGRES_PASSWORD=debian23
+# Executando PostgreSQL com senha
+docker run --name erpBD -v "$PWD"/:/opt/erpBD/ -e POSTGRES_PASSWORD=debian23
 -d postgres
 
 
