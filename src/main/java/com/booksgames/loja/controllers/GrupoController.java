@@ -6,11 +6,7 @@ import com.booksgames.loja.repository.GrupoRepository;
 import com.booksgames.loja.services.impl.GrupoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -22,9 +18,9 @@ import java.util.List;
  * web2ajax@gmail.com
  * Santiago Chile 15 02 2019
  */
-
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/grupos")
+@RequestMapping("/grupos/v1/grupo")
 public class GrupoController {
 
     @Autowired

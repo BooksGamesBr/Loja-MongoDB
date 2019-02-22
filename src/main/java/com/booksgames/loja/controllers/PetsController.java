@@ -17,7 +17,7 @@ import com.booksgames.loja.responses.Response;
  * web2ajax@gmail.com
  * Santiago Chile 15 02 2019
  */
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/pets")
 public class PetsController {

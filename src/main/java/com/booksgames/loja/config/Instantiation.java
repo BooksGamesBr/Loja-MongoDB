@@ -42,32 +42,32 @@ public class Instantiation  implements CommandLineRunner {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-        Embalagem PLATICA = new Embalagem(null,"PLATICA");
+        Embalagem PLASTICA = new Embalagem(null,"PLASTICA");
         Grupo GRUPOA =  new Grupo(null, "DESCRICAO GRUPO");
         Cor PRETO = new Cor(null, "PRETO", "XXXXX");
         Marca MARCA = new Marca(null, "MARCA X");
 
         Produto COMPUTADOR = new Produto(null, UUID.randomUUID(), "COMPUTADOR", 4.1,
-                PLATICA,"SIM", 82.0, "SIM", "Ativo", GRUPOA,
+                PLASTICA,"SIM", 82.0, "SIM", "Ativo", GRUPOA,
                 PRETO, MARCA, null,
                 sdf.parse("21/03/2018"));
 
         Produto CELULAR = new Produto(null, UUID.randomUUID(), "CELULAR", 4.1,
-                PLATICA, "SIM", 82.0, "SIM", "Ativo", GRUPOA,
+                PLASTICA, "SIM", 82.0, "SIM", "Ativo", GRUPOA,
                 PRETO, MARCA, null,
                 sdf.parse("21/03/2018"));
 
-        embalagemRepository.saveAll(Arrays.asList(PLATICA));
+        embalagemRepository.saveAll(Arrays.asList(PLASTICA));
         grupoRepository.saveAll(Arrays.asList(GRUPOA));
         corRepository.saveAll(Arrays.asList(PRETO));
         marcaRepository.saveAll(Arrays.asList(MARCA));
 
-        embalagemRepository.save(PLATICA);
+        embalagemRepository.save(PLASTICA);
         grupoRepository.save(GRUPOA);
         corRepository.save(PRETO);
         marcaRepository.save(MARCA);
 
-        embalagemRepository.saveAll(Arrays.asList(PLATICA));
+        embalagemRepository.saveAll(Arrays.asList(PLASTICA));
         grupoRepository.saveAll(Arrays.asList(GRUPOA));
         corRepository.saveAll(Arrays.asList(PRETO));
         marcaRepository.saveAll(Arrays.asList(MARCA));

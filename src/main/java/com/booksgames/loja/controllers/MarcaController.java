@@ -26,9 +26,9 @@ import reactor.core.publisher.Mono;
  * web2ajax@gmail.com
  * Santiago Chile 15 02 2019
  */
-
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/marcaes")
+@RequestMapping("/marcas/v1/marca")
 public class MarcaController {
 
     @Autowired
@@ -40,7 +40,7 @@ public class MarcaController {
     @Autowired
     private MarcaServiceImpl marcaServiceImpl;
 
-    @GetMapping(value="/marca")
+    @GetMapping(value="/flux")
     public Flux<Marca> getMarca(){
         return marcaServiceImpl.findAll();
     }

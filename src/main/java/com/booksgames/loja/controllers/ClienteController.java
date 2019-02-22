@@ -16,7 +16,7 @@ import com.booksgames.loja.services.ClienteService;
  * web2ajax@gmail.com
  * Santiago Chile 15 02 2019
  */
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(path = "clientes")
 public class ClienteController {

@@ -4,11 +4,12 @@ import com.booksgames.loja.documents.Iris;
 import com.booksgames.loja.documents.IrisType;
 import com.booksgames.loja.services.IrisClassifierService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
-
+@CrossOrigin(origins = "*")
 @RestController
 public class IrisController {
 

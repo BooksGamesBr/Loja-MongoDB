@@ -26,9 +26,9 @@ import reactor.core.publisher.Mono;
  * web2ajax@gmail.com
  * Santiago Chile 15 02 2019
  */
-
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/cores")
+@RequestMapping("/cores/v1/cor")
 public class CorController {
 
     @Autowired
@@ -40,7 +40,7 @@ public class CorController {
     @Autowired
     private CorServiceImpl corServiceImpl;
 
-    @GetMapping(value="/cor")
+    @GetMapping(value="/flux")
     public Flux<Cor> getCor(){
         return corServiceImpl.findAll();
     }
